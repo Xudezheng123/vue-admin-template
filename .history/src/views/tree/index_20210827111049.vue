@@ -1,0 +1,71 @@
+<template>
+  <div class="app-container">
+    <el-row :gutter="20">
+      <!--侧边菜单树-->
+      <el-col :xs="9" :sm="6" :md="5" :lg="4" :xl="4">
+        <div class="head-container">
+          <el-input
+            v-model="filterText"
+            clearable
+            size="small"
+            placeholder="输入菜单名称搜索"
+            prefix-icon="el-icon-search"
+            class="filter-item"
+            @input="getDeptDatas"
+          />
+        </div>
+        <el-tree
+          :data="deptDatas"
+          :load="getDeptDatas"
+          :props="defaultProps"
+          :expand-on-click-node="false"
+          lazy
+          @node-click="handleNodeClick"
+        />
+      </el-col>
+      <!--用户数据-->
+      <el-col :xs="15" :sm="18" :md="19" :lg="20" :xl="20">
+        <!--表格渲染-->
+        
+      </el-col>
+    </el-row>
+  </div>
+</template>
+
+<script>
+
+export default {
+  name: 'menu',
+  components: { },
+  mixins: [],
+  data() {
+    return {
+      filterText:'',
+    }
+  },
+  watch:{
+    filterText(val){
+      this.$refs.tree.filter(val);
+    }
+  },
+  computed: {
+
+  },
+  created() {
+
+  },
+  mounted: function() {
+
+  },
+  methods: {
+
+  }
+}
+</script>
+
+<style rel="stylesheet/scss" lang="scss" scoped>
+  ::v-deep .vue-treeselect__control,::v-deep .vue-treeselect__placeholder,::v-deep .vue-treeselect__single-value {
+    height: 30px;
+    line-height: 30px;
+  }
+</style>

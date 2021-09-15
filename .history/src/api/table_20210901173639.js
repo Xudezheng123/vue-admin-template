@@ -1,0 +1,49 @@
+import request from '@/utils/request'
+/* eslint-disable */
+
+export function getList(params) {
+  return request({
+    url: '/dev-api/vue-admin-template/table/list',
+    method: 'get',
+    params
+  })
+}
+
+export function getAllMenu(params){
+  return request({
+    url: '/api/menu/getAllMenu',
+    method:'get',
+    params
+  })
+}
+
+export function getMenuDetail(id){
+  return request({
+    url:'/api/menu/getMenuDetail?id='+id,
+    method:'get'
+  })
+}
+
+export function deleteMenus(ids){
+  return request({
+    url:'/api/menu/deleteMenu?id='+ids,
+    method:'post',
+  })
+}
+
+export function addMenu(params){
+  return request({
+    url:'/api/menu/editMenu',
+    method:'post',
+    headers:{
+      'Content-Type':'application/json'
+    },
+    data:params
+  })
+}
+
+export function moveMenu(params){
+  return request({
+    url:'/api/menu/moveMenu'
+  })
+}
